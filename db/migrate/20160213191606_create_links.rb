@@ -2,6 +2,9 @@ class CreateLinks < ActiveRecord::Migration
   def change
     create_table :links do |t|
       t.string :url, null: false, default: ""
+      t.string :title, default: ""
+
+      t.string :notes, default: ""
 
       t.belongs_to :user, index: true
 

@@ -18,6 +18,10 @@
 @import "bootstrap";
 @import 'bootstrap/theme';
 
+body {
+  margin-top: 5.5em;
+}
+
 .alert-alert {
   @extend .alert-warning;
 }

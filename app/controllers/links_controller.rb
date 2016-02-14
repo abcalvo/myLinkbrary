@@ -1,6 +1,8 @@
 class LinksController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
-    @links = Link.all
+    @links = Link.where(user: current_user)
   end
 
   def show
@@ -8,6 +10,13 @@ class LinksController < ApplicationController
   end
 
   def new
+    if params.has_key?(:url) then
+      @url = params[:url]
+    end
+
+    if params.has_key?(:title) then
+      @title = params[:title]
+    end
   end
 
   def create
@@ -21,6 +30,6 @@ class LinksController < ApplicationController
 
   private
   def link_params
-    params.require(:link).permit(:url)
+    params.require(:link).permit(:url, :title, :notes)
   end
 end

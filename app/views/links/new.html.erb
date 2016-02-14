@@ -1,10 +1,20 @@
-<%= form_for :link, url: links_path do |f| %>
-  <p>
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </p>
+<% header "Add link" %>
 
-  <p>
-    <%= f.submit %>
-  </p>
+<%= form_for :link, url: links_path do |f| %>
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, autofocus: true, class: 'form-control', :value => @title %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :url %><br>
+    <%= f.text_field :url, class: 'form-control', :value => @url %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes, class: 'form-control' %>
+  </div>
+
+  <%= f.submit "Save link", class: 'btn btn-primary' %>
 <% end %>
