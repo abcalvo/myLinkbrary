@@ -18,7 +18,6 @@
 @import "bootstrap";
 @import 'bootstrap/theme';
 
-@import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Cookie);
 
 body {
@@ -36,7 +35,7 @@ body {
 .main-image {
   @extend .jumbotron;
 
-  //background: url(image_path('myLinkbrary.png')) repeat-x center -75px;
+  background: url(image_path('myLinkbrary.png')) repeat-x center -75px;
   //background: url(image_path('myLinkbrary2.jpg')) repeat-x center -100px;
 }
 
