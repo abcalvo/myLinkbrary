@@ -1,6 +1,6 @@
 <p>
   <strong>Title:</strong>
-  <a href="<%= @link.url %>" target="_blank"><%= @link.title %></a>
+  <%= link_to @link.title, @link.url, target: "_blank" %>
   <strong>Link:</strong>
   <%= @link.url %>
   <strong>Notes:</strong>

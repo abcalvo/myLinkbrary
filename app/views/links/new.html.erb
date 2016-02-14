@@ -1,4 +1,4 @@
-<% header "Add link" %>
+<h3>Add link</h3>
 
 <%= form_for :link, url: links_path do |f| %>
   <div class="form-group">
@@ -9,6 +9,11 @@
   <div class="form-group">
     <%= f.label :url %><br>
     <%= f.text_field :url, class: 'form-control', :value => @url %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tags %><br>
+    <%= f.text_field :tags, class: 'form-control' %>
   </div>
 
   <div class="form-group">

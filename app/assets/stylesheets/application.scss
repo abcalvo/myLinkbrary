@@ -18,6 +18,9 @@
 @import "bootstrap";
 @import 'bootstrap/theme';
 
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Cookie);
+
 body {
   margin-top: 5.5em;
 }
@@ -35,4 +38,9 @@ body {
 
   //background: url(image_path('myLinkbrary.png')) repeat-x center -75px;
   //background: url(image_path('myLinkbrary2.jpg')) repeat-x center -100px;
+}
+
+.navbar-brand {
+  font-family: 'Cookie', cursive;
+  font-size: 250%;
 }

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :links
+  resources :tags
   root to: 'pages#index'
+
+  get 'edit_links' => 'links#edit_links'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213191606) do
+ActiveRecord::Schema.define(version: 20160214155327) do
 
   create_table "links", force: :cascade do |t|
     t.string   "url",        default: "", null: false
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(version: 20160213191606) do
   end
 
   add_index "links", ["user_id"], name: "index_links_on_user_id"
+
+  create_table "links_tags", id: false, force: :cascade do |t|
+    t.integer "tag_id",  null: false
+    t.integer "link_id", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "tag_name",   null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["tag_name", "user_id"], name: "index_tags_on_tag_name_and_user_id", unique: true
+  add_index "tags", ["user_id"], name: "index_tags_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "", null: false

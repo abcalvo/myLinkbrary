@@ -3,14 +3,16 @@
 <div class="table-responsive">
   <table class="table-striped">
   <thead>
+    <th></th>
     <th class="col-md-5">Title</th>
     <th class="col-md-7">Tags</th>
   </thead>
   <tbody>
     <% @links.each do |link| %>
     <tr>
+      <td><%= link_to edit_link_path(link) do %> <span class="glyphicon glyphicon-pencil"/><% end %></td>
       <td class="col-md-5"><%= link_to link.title, link.url, target: "_blank" %></td>
-      <td class="col-md-7"><%= flatten_tags_with_links(link.tags.order(tag_name: :asc)) %></td>
+      <td class="col-md-7"><%= flatten_tags_with_links(link.tags) %></td>
     </tr>
     <% end %>
   </tbody>

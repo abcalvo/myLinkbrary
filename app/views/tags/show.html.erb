@@ -1,0 +1,5 @@
+<h3>Tag <%= @tag_name %></h3>
+
+<% @links.each do |link| %>
+  <p><%= link_to link.title, link.url %></p>
+<% end %>
