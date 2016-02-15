@@ -35,11 +35,28 @@ body {
 .main-image {
   @extend .jumbotron;
 
-  background: url(image_path('myLinkbrary.png')) repeat-x center -75px;
-  //background: url(image_path('myLinkbrary2.jpg')) repeat-x center -100px;
+  //background: url(image_path('myLinkbrary.png')) center -75px;
+  background: url(image_path('myLinkbrary2.jpg')) center;
+
+  /*background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-attachment: scroll;*/
+  height: 100%;
+  width: 100%;
 }
 
 .navbar-brand {
   font-family: 'Cookie', cursive;
   font-size: 250%;
+}
+
+.main-image .myLinkbrary {
+  font-family: 'Cookie', cursive;
+  font-size: 5em;
+  color: #e7e7e7;
 }

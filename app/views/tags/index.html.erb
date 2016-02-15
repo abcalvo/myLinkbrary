@@ -1,7 +1,14 @@
-<h3>Tags</h3>
+<h3>My Tags</h3>
 
-<% @tags.each do |tag| %>
-  <p>
-    <%= link_to tag.tag_name, tag_path(tag) %>
-  </p>
-<% end %>
+<div class="table-responsive">
+  <table class="table-striped">
+    <tbody>
+      <% @tags.each do |tag| %>
+      <tr>
+        <td class="col-xs-12"><%= link_to tag.tag_name, tag_path(tag) %></td>
+        <td class="link-detail"><%= link_to tag_path(tag) do %> <span class="glyphicon glyphicon-chevron-right"/><% end %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

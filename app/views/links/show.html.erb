@@ -1,8 +1,11 @@
+<h2><%= link_to @link.title, @link.url, target: "_blank" %></h2>
+<%= @link.url %>
+<h4>Tags:</h4>
+<%= @link.tags.count > 0 ? flatten_tags_with_links(@link.tags) : "No tags"%>
+<h4>Notes:</h4>
+<%= @link.notes != "" ? @link.notes : "No notes" %>
+
 <p>
-  <strong>Title:</strong>
-  <%= link_to @link.title, @link.url, target: "_blank" %>
-  <strong>Link:</strong>
-  <%= @link.url %>
-  <strong>Notes:</strong>
-  <%= @link.notes %>
+<%= link_to "Edit", edit_link_path(@link), class: 'btn btn-primary btn-sm' %>
+<%= link_to "Back", :back, class: 'btn btn-default btn-sm' %>
 </p>

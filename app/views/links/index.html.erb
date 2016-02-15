@@ -1,18 +1,14 @@
-<h3>Links</h3>
+<h3>My Links</h3>
 
 <div class="table-responsive">
   <table class="table-striped">
-  <thead>
-    <th class="col-md-5">Title</th>
-    <th class="col-md-7">Tags</th>
-  </thead>
-  <tbody>
-    <% @links.each do |link| %>
-    <tr>
-      <td class="col-md-5"><%= link_to link.title, link.url, target: "_blank" %></td>
-      <td class="col-md-7"><%= flatten_tags_with_links(link.tags.order(tag_name: :asc)) %></td>
-    </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+      <% @links.each do |link| %>
+      <tr>
+        <td class="col-xs-12"><%= link_to link.title, link.url, target: "_blank" %></td>
+        <td class="link-detail"><%= link_to link_path(link) do %> <span class="glyphicon glyphicon-chevron-right"/><% end %></td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
