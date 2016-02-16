@@ -17,6 +17,8 @@ class LinksController < ApplicationController
     if params.has_key?(:title) then
       @title = params[:title]
     end
+
+    @bookmarklet = params.has_key?(:bookmarklet)
   end
 
   def edit
@@ -36,7 +38,7 @@ class LinksController < ApplicationController
   end
 
   def update
-    @link = Link.find(params[:id])
+    @link = Link.where(user: current_user).find_by_id(params[:id])
 
     if @link.update(link_params)
       tags_to_update = params[:link][:tags]
@@ -46,6 +48,17 @@ class LinksController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @link = Link.where(user: current_user).find_by_id(params[:id])
+
+    array_of_actual_tags = @link.tags.map(&:tag_name)
+    delete_tags(array_of_actual_tags)
+
+    @link.destroy
+
+    redirect_to links_path
   end
 
   private

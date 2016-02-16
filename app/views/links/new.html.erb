@@ -22,4 +22,9 @@
   </div>
 
   <%= f.submit "Add link", class: 'btn btn-primary' %>
+  <% if @bookmarklet then %>
+    <%= link_to "Close", '_self', { :onclick=>'window.close();', :class=>"btn btn-default" } %>
+  <% else %>
+    <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
+  <% end %>
 <% end %>

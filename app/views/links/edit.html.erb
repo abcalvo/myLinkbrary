@@ -1,25 +1,36 @@
-<h3>Edit link</h3>
+<% if @link %>
+  <h3>Edit link</h3>
 
-<%= form_for :link, url: link_path(@link), method: :patch do |f| %>
-  <div class="form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
-  </div>
+  <%= form_for :link, url: link_path(@link), method: :patch do |f| %>
+    <div class="form-group">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :url %><br>
-    <%= f.text_field :url, class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :url %><br>
+      <%= f.text_field :url, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :tags %><br>
-    <%= f.text_field :tags, class: 'form-control', value: flatten_tags(@link.tags) %>
-  </div>
+    <div class="form-group">
+      <%= f.label :tags %><br>
+      <%= f.text_field :tags, class: 'form-control', value: flatten_tags(@link.tags) %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes, class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :notes %><br>
+      <%= f.text_area :notes, class: 'form-control' %>
+    </div>
 
-  <%= f.submit "Save link", class: 'btn btn-primary' %>
+    <%= f.submit "Save link", class: 'btn btn-primary' %>
+    <%= link_to "Cancel", :back, class: 'btn btn-default' %>
+    <%= link_to "Delete", link_path(@link), class: 'btn btn-danger',
+            data: { confirm: "Delete link. Are you sure?" }, method: :delete %>
+  <% end %>
+<% else %>
+  <h2>Non existent link</h2>
+
+  <p>
+  <%= link_to "Back", :back, class: 'btn btn-default' %>
+  </p>
 <% end %>

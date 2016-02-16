@@ -1,5 +1,22 @@
-<h3>Tag <%= @tag_name %></h3>
+<% if @links %>
+  <h3>Tag <%= @tag_name %></h3>
 
-<% @links.each do |link| %>
-  <p><%= link_to link.title, link.url %></p>
+  <div class="table-responsive">
+    <table class="table-striped">
+      <tbody>
+        <% @links.each do |link| %>
+          <tr>
+            <td class="col-xs-12"><%= link_to link.title, link.url, target: "_blank" %></td>
+            <td class="link-detail"><%= link_to link_path(link) do %> <span class="glyphicon glyphicon-chevron-right"/><% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <h2>Non existent tag</h2>
+
+  <p>
+  <%= link_to "Back", :back, class: 'btn btn-default btn-sm' %>
+  </p>
 <% end %>

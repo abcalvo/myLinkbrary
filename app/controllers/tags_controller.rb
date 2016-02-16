@@ -6,19 +6,9 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag_name = Tag.find(params[:id]).tag_name
-    @links = Tag.find(params[:id]).links.order(created_at: :desc)
-  end
+    tag = Tag.where(user: current_user).find_by_id(params[:id])
 
-  def create_if_necessary(tag_name)
-    if !(Tag.exists?(user: current_user, tag_name: tag_name)) then
-      @tag = Tag.new(user: current_user, tag_name: tag_name)
-
-      @tag.save
-    end
-  end
-
-  def delete
-    
+    @tag_name = tag.nil? ? nil : tag.tag_name
+    @links =  tag.nil? ? nil : tag.links.order(created_at: :desc)
   end
 end
