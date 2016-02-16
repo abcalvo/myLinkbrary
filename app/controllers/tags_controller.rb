@@ -18,9 +18,7 @@ class TagsController < ApplicationController
     end
   end
 
-  def create2
-    @tag = Tag.new(user: current_user, tag_name: tag_name)
-
-    @tag.save
+  def delete
+    
   end
 end
