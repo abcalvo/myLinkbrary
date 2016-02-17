@@ -1,1 +1,1 @@
-javascript:(function(){open('http://localhost:3000/links/new?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title),'myLinkbrary','height=500,width=500');})()
+javascript:(function(){open('http://localhost:3000/links/new?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)+'&bookmarklet=true','myLinkbrary','height=500,width=500');})()
