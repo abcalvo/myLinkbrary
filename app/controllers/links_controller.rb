@@ -7,6 +7,8 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.where(user: current_user).find_by_id(params[:id])
+
+    @bookmarklet = params.has_key?(:bookmarklet)
   end
 
   def new
@@ -34,7 +36,11 @@ class LinksController < ApplicationController
     tags = params[:link][:tags]
     save_tags(tags)
 
-    redirect_to @link
+    if (params[:link][:from_bookmarklet] == 'true')
+      redirect_to link_path(@link, bookmarklet: true)
+    else
+      redirect_to @link
+    end
   end
 
   def update

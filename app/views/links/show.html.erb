@@ -7,7 +7,12 @@
   <%= @link.notes != "" ? @link.notes : "No notes" %>
   <div class="buttons">
   <%= link_to "Edit", edit_link_path(@link), class: 'btn btn-primary' %>
-  <%= link_to "Back", :back, class: 'btn btn-default' %>
+  
+  <% if @bookmarklet then %>
+    <%= link_to "Close", '_self', { :onclick=>'window.close();', :class=>"btn btn-default" } %>
+  <% else %>
+    <%= link_to "Back", :back, class: 'btn btn-default' %>
+  <% end %>
   </div>
 <% else %>
   <h2>Non existent link</h2>
