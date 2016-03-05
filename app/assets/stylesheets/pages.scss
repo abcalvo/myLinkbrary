@@ -1,0 +1,23 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+.main-image {
+  @extend .jumbotron;
+
+  //background: url(image_path('myLinkbrary.png')) center -75px;
+  background: url(image_path('myLinkbrary2.jpg')) center;
+
+  /*background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-attachment: scroll;*/
+  height: 100%;
+  width: 100%;
+}
